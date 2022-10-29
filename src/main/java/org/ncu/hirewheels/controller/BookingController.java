@@ -18,7 +18,7 @@ public class BookingController {
     @Autowired
     BookingService bookingService;
 
-    @PostMapping(value = "bookings", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/bookings", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Booking> addBooking(@RequestBody Booking booking) {
         try {
             Booking curr_booking = bookingService.addBooking(booking);

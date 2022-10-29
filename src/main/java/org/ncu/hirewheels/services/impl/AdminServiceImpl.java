@@ -8,7 +8,9 @@ import org.ncu.hirewheels.entities.Vehicle;
 import org.ncu.hirewheels.repository.VehicleRepository;
 import org.ncu.hirewheels.services.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class AdminServiceImpl implements AdminService {
 
     @Autowired

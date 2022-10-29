@@ -8,7 +8,9 @@ import org.ncu.hirewheels.entities.User;
 import org.ncu.hirewheels.repository.UserRepository;
 import org.ncu.hirewheels.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
