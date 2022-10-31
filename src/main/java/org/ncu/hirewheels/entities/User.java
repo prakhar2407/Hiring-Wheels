@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -40,24 +42,32 @@ public class User {
     @Column(name = "wallet_money", columnDefinition = "numeric(10, 2) default 10000.0")
     private Integer wallet_money;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id", columnDefinition = "numeric(10)", nullable = false)
     private Role role;
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Booking> bookings;
 
-    public User() {
-    }
-
-    public User(String first_name, String last_name, String password, String email, String mobile_no,
-            Integer wallet_money) {
+    public User(String first_name, String last_name, String password, String email, String mobile_no, Role role) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.password = password;
         this.email = email;
         this.mobile_no = mobile_no;
-        this.wallet_money = wallet_money;
+        this.role = role;
+    }
+
+    public User() {
+    }
+
+    public User(String first_name, String last_name, String password, String email, String mobile_no) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.password = password;
+        this.email = email;
+        this.mobile_no = mobile_no;
     }
 
     public Integer getUser_id() {

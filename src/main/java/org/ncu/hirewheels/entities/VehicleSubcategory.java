@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "vehicle_subcategory")
 public class VehicleSubcategory {
@@ -28,6 +30,7 @@ public class VehicleSubcategory {
     @Column(name = "price_per_day", columnDefinition = "numeric(10,2)", nullable = false)
     private Integer price_per_day;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "vehicle_category_id", columnDefinition = "numeric(10)", nullable = false)
     private VehicleCategory vehicleCategory;

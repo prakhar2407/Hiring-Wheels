@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name = "vehicle")
@@ -38,14 +40,17 @@ public class Vehicle {
     @Column(name = "vehicle_image_url", columnDefinition = "varchar(500)", nullable = false)
     private String vehicle_image_url;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "vehicle_subcategory_id", columnDefinition = "numeric(10)", nullable = false)
     private VehicleSubcategory vehicleSubcategory;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "location_id", columnDefinition = "numeric(10)")
     private Location location;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "fuel_type_id", columnDefinition = "numeric(10)")
     private FuelType fuelType;

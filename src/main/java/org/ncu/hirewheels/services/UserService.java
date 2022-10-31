@@ -1,10 +1,9 @@
 package org.ncu.hirewheels.services;
 
-import java.util.Optional;
-
-import org.ncu.hirewheels.entities.User;
+import org.ncu.hirewheels.dto.Request.UserRequestDto;
+import org.ncu.hirewheels.dto.Response.UserResponseDto;
 
 public interface UserService {
-    public User createUser(User user);
-    public Optional<User> getUser(String email, String password) throws Exception;
+    public UserResponseDto createUser(UserRequestDto userDto) throws Exception;
+    public UserResponseDto getUser(String email, String password) throws Exception;
 }

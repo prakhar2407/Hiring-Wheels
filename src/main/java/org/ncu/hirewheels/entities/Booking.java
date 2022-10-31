@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "booking")
 public class Booking {
@@ -32,14 +34,17 @@ public class Booking {
     @Column(name = "amount", columnDefinition = "numeric(10,2)", nullable = false)
     private Integer amount;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "location_id", columnDefinition = "numeric(10)", nullable = false)
     private Location location;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "vehicle_id", columnDefinition = "numeric(10)", nullable = false)
     private Vehicle vehicle;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", columnDefinition = "numeric(10)", nullable = false)
     private User user;
