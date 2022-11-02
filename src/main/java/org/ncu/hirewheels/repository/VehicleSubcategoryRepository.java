@@ -1,5 +1,8 @@
 package org.ncu.hirewheels.repository;
 
-public interface VehicleSubcategoryRepository {
+import org.ncu.hirewheels.entities.VehicleSubcategory;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface VehicleSubcategoryRepository extends JpaRepository<VehicleSubcategory, Integer> {
 
 }

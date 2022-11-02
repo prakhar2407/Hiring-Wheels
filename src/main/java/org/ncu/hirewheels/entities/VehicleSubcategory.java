@@ -38,4 +38,44 @@ public class VehicleSubcategory {
     @OneToMany(mappedBy = "vehicleSubcategory",cascade = CascadeType.ALL)
     private List<Vehicle> vehicles;
 
+    public Integer getVehicle_subcategory_id() {
+        return vehicle_subcategory_id;
+    }
+
+    public void setVehicle_subcategory_id(Integer vehicle_subcategory_id) {
+        this.vehicle_subcategory_id = vehicle_subcategory_id;
+    }
+
+    public String getVehicle_subcategory_name() {
+        return vehicle_subcategory_name;
+    }
+
+    public void setVehicle_subcategory_name(String vehicle_subcategory_name) {
+        this.vehicle_subcategory_name = vehicle_subcategory_name;
+    }
+
+    public Integer getPrice_per_day() {
+        return price_per_day;
+    }
+
+    public void setPrice_per_day(Integer price_per_day) {
+        this.price_per_day = price_per_day;
+    }
+
+    public VehicleCategory getVehicleCategory() {
+        return vehicleCategory;
+    }
+
+    public void setVehicleCategory(VehicleCategory vehicleCategory) {
+        this.vehicleCategory = vehicleCategory;
+    }
+
+    public List<Vehicle> getVehicles() {
+        return vehicles;
+    }
+
+    public void setVehicles(List<Vehicle> vehicles) {
+        this.vehicles = vehicles;
+    }
+
 }

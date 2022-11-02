@@ -1,5 +1,6 @@
 package org.ncu.hirewheels.controller;
 
+import org.ncu.hirewheels.dto.Request.BookingDto;
 import org.ncu.hirewheels.entities.Booking;
 import org.ncu.hirewheels.services.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +20,10 @@ public class BookingController {
     BookingService bookingService;
 
     @PostMapping(value = "/bookings", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Booking> addBooking(@RequestBody Booking booking) {
+    public ResponseEntity<BookingDto> addBooking(@RequestBody BookingDto bookingDto) {
         try {
-            Booking curr_booking = bookingService.addBooking(booking);
-            return new ResponseEntity<Booking>(curr_booking, HttpStatus.CREATED);
+            BookingDto curr_booking = bookingService.addBooking(bookingDto);
+            return new ResponseEntity<BookingDto>(curr_booking, HttpStatus.CREATED);
         } catch (Exception e) {
             throw e;
         }

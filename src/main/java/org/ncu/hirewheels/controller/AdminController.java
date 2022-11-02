@@ -1,6 +1,7 @@
 package org.ncu.hirewheels.controller;
 
-import org.ncu.hirewheels.entities.Vehicle;
+import org.ncu.hirewheels.dto.Request.AvailablityStatus;
+import org.ncu.hirewheels.dto.Request.VehicleDto;
 import org.ncu.hirewheels.services.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,10 +21,10 @@ public class AdminController {
     AdminService adminService;
 
     @PostMapping(value = "/vehicles", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Vehicle> addVehicle(@RequestBody Vehicle vehicle) {
+    public ResponseEntity<VehicleDto> addVehicle(@RequestBody VehicleDto vehicle) {
         try {
-            Vehicle curr_vehicle = adminService.registerVehicle(vehicle);
-            return new ResponseEntity<Vehicle>(curr_vehicle, HttpStatus.CREATED);
+            VehicleDto curr_vehicle = adminService.registerVehicle(vehicle);
+            return new ResponseEntity<VehicleDto>(curr_vehicle, HttpStatus.CREATED);
         } catch (Exception e) {
             throw e;
         }
@@ -31,10 +32,10 @@ public class AdminController {
     }
 
     @PutMapping(value = "/vehicles/{vehicle_id}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Vehicle> updateVehicle(@PathVariable Integer vehicle_id) throws Exception {
+    public ResponseEntity<VehicleDto> updateVehicle(@PathVariable Integer vehicle_id, @RequestBody AvailablityStatus availabilityStatus) throws Exception {
         try {
-            Vehicle curr_vehicle = adminService.changeAvailability(vehicle_id);
-            return new ResponseEntity<Vehicle>(curr_vehicle, HttpStatus.ACCEPTED);
+            VehicleDto curr_vehicle = adminService.changeAvailability(vehicle_id, availabilityStatus);
+            return new ResponseEntity<VehicleDto>(curr_vehicle, HttpStatus.ACCEPTED);
         } catch (Exception e) {
             throw e;
         }

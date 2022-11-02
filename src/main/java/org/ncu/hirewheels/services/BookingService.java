@@ -1,7 +1,7 @@
 package org.ncu.hirewheels.services;
 
-import org.ncu.hirewheels.entities.Booking;
+import org.ncu.hirewheels.dto.Request.BookingDto;
 
 public interface BookingService {
-    public Booking addBooking(Booking booking);
+    public BookingDto addBooking(BookingDto bookingDto);
 }

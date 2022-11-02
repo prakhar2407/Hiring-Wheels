@@ -19,8 +19,9 @@ public class VehicleController {
     @Autowired
     VehicleServiceImpl vehicleServiceImpl;
 
-    @GetMapping(value = "/vehicles", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/vehicles", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Vehicle>> getVehicles() {
+        System.out.println("Prakhar Bansal");
         List<Vehicle> vehicles = vehicleServiceImpl.getAllVehicles();
         return new ResponseEntity<List<Vehicle>>(vehicles, HttpStatus.OK);
     }

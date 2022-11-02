@@ -5,7 +5,6 @@ import javax.validation.Valid;
 import org.ncu.hirewheels.dto.Request.GetUserRequestDto;
 import org.ncu.hirewheels.dto.Request.UserRequestDto;
 import org.ncu.hirewheels.dto.Response.UserResponseDto;
-import org.ncu.hirewheels.entities.User;
 import org.ncu.hirewheels.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
